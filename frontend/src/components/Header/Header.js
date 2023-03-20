@@ -7,7 +7,7 @@ export const Header = () => {
         <>
             <ul>
                 <li><NavLink to='/'>Главная</NavLink></li>
-                <li><NavLink to='/aboute'>Прочее</NavLink></li>
+                <li><NavLink to='/about'>Прочее</NavLink></li>
                 <li><NavLink to='/contacts'>Контакты</NavLink></li>
             </ul>
         </>
