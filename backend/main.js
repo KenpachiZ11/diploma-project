@@ -7,20 +7,23 @@ const cors = require("cors");
 const app = express();
 const PORT = process.env.PORT;
 
+let Author = require('./Schema/authorSchema');
+
 mongoose
-    .connect(
-        `mongodb+srv://DaniilBy:${process.env.DB_PASSWORD}@diplomaproject.bhvad90.mongodb.net/?retryWrites=true&w=majority`,
-        {
-            useNewUrlParser: true,
-        },
-    )
+    .connect(`mongodb+srv://DaniilBy:${process.env.DB_PASSWORD}@diplomaproject.bhvad90.mongodb.net/?retryWrites=true&w=majority`)
     .then(() => console.log('MongoBD connect'))
     .catch((err) => console.log(err))
+
+    let author = new Author({
+        authorName: 'Alex',
+        authorEmail: 'alex@gmail.com'
+    }).save();
+
+    // console.log(author)
 
 // app.get('/', (req, res) => {
 //     res.send('<h1>Hello Node.js</h1>');
 // });
-
 app.use(cors());
 app.get('/about', (req, res) => {
     res.json({ message: "Hello from server!" });
@@ -31,3 +34,10 @@ app.get('/about', (req, res) => {
 app.listen(PORT, (err) => {
     err ? console.log(err) : console.log(`Server start on PORT:${PORT}`);
 });
+
+
+    // let author = new Author({
+    //     authorName: 'Author',
+    //     authorEmail: 'author@mail.ru'
+    // });
+    
