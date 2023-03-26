@@ -1,32 +1,34 @@
-import React, { useEffect, useState } from 'react';
-import './Cards.scss';
-import { card_array } from '../../components/arrayComponent';
+import React, { useState, useEffect } from 'react'
 import { Card } from './Card';
+import './Cards.scss'
 
-// console.log(card_array)
 
-export const Cards = () => {
-    const [data, setData] = useState([]);
-
+const Cards = () => {
+    const [product, setProduct] = useState([]);
+    
     useEffect(() => {
-        setTimeout(() => {
-            setData(card_array);
-        }, 1500);
+        try {
+
+            fetch(`https://fakestoreapi.com/products`)
+                .then(res => res.json())
+                .then(res => setProduct(res))
+
+        } catch (error) {
+            console.log(error);
+        }
     }, []);
 
-    // console.log(data)
+    // console.log(product)
+
     return (
-        <div className='wrapper-cards'>
-            <div className='wrapper-cards__content'>
-                {
-                    data && data.length > 0 ? (
-                        <Card data={data} /> 
-                    ) : 
-                        <div className='wrapper-cards__content-loading'>
-                            Loading...
-                        </div>
-                }
+        <div className='aside-block__owner'>OwnerAside
+            <div className='aside-block__owner-grid'>
+                <Card 
+                    product={product}
+                />
             </div>
         </div>
     )
 }
+
+export default Cards

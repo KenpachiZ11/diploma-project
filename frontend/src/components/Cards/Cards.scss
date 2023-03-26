@@ -1,72 +1,34 @@
-.wrapper-cards {
+.aside-block__owner {
     width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
-    &__content {
-        width: 90%;
-        height: 90%;
-        // background: yellow;
-        // box-sizing: border-box;
-        flex-direction: column;
-
-        &-loading {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-    }
-
-    &__content-body {
-        // box-sizing: border-box;
+    &-grid {
         width: 100%;
-        height: 60%;
-        flex-direction: column-reverse;
-        // display: flex;
-        // border: 1px solid;
-        margin-bottom: 30px;
+        // height: 650px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        background: green;
     }
-    &__content-author {
-        height: 10%;
-        width: 100%;
+}
+
+.cards-block {
+    width: 100%;
+    // min-height: 350px;
+    border: 1px solid;
+    border-radius: 10px;
+    
+    // &__owner {
+    //     min-height: 550px;
+    // }
+
+    &__image {
         display: flex;
         justify-content: center;
-        align-items: center;
-        background: yellow;
-    }
-    &__body {
-        padding: 10px;
-        width: 100%;
-        height: 90%;
-        background-color: gray;
-        display: flex;
-        gap: 50px;
-
-        &-portfolio {
-            width: 33%;
-            flex-direction: row;
-            border: 1px solid;
-
-            &__img {
-                // width: 100%;
-                height: 90%;
-                // background: yellow;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-
-                &-content {
-                    width: 60%;
-                    height: 100%;
-                    object-fit: cover;
-                    border: 0 solid;
-                    border-radius: 10px;
-                }
-            }
+        // align-items: center;
+        &-img {
+            width: 90%;
+            height: 90%;
+            object-fit: cover;
         }
     }
 }
