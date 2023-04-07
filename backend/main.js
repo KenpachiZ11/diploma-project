@@ -8,16 +8,21 @@ const app = express();
 const PORT = process.env.PORT;
 
 let Author = require('./Schema/authorSchema');
-
-mongoose
-    .connect(`mongodb+srv://DaniilBy:${process.env.DB_PASSWORD}@diplomaproject.bhvad90.mongodb.net/?retryWrites=true&w=majority`)
-    .then(() => console.log('MongoBD connect'))
-    .catch((err) => console.log(err))
+try {
+    mongoose
+        .connect(`mongodb+srv://DaniilBy:${process.env.DB_PASSWORD}@diplomaproject.bhvad90.mongodb.net/?retryWrites=true&w=majority`)
+        .then(() => console.log('MongoBD connect'))
+        .catch((err) => console.log(err, 'error'))
 
     let author = new Author({
         authorName: 'Alex',
         authorEmail: 'alex@gmail.com'
     }).save();
+
+} catch (error) {
+    console.error(error)
+}
+
 
     // console.log(author)
 

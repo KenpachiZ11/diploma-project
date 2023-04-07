@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 // import { Link } from 'react-router-dom';
 
 export const Card = ({ product }) => {    
@@ -11,9 +12,10 @@ export const Card = ({ product }) => {
             const {id, title, image} = result;
                 // console.log(portfolio.length)
                 return (
-                    <div 
+                    <Link 
                         className='cards-block'
                         key={id}
+                        to={`/about/${id}`}
                     >
                         <div className='cards-block__owner'>
                             <div className='cards-block__image'>
@@ -26,7 +28,7 @@ export const Card = ({ product }) => {
                             <div className='cards-block__title'>{title}</div>
                         </div>
                         
-                    </div>
+                    </Link>
                 )
             });
         } else {

@@ -5,7 +5,10 @@
         width: 100%;
         // height: 650px;
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
+        // grid-template-columns: repeat(3, 1fr);
+        // grid-auto-rows: 200px;
+        grid-auto-flow: dense;
         gap: 30px;
         background: green;
     }
@@ -16,6 +19,16 @@
     // min-height: 350px;
     border: 1px solid;
     border-radius: 10px;
+
+    // &:nth-child(2n+1){
+    //     height: 430px;
+    // }
+    // &:nth-child(2n){
+    //     height: 320px;
+    // }
+    // &:nth-child(3){
+    //     height: 700px;
+    // }
     
     // &__owner {
     //     min-height: 550px;
@@ -29,6 +42,7 @@
             width: 90%;
             height: 90%;
             object-fit: cover;
+            // background-size: cover;
         }
     }
 }
