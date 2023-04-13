@@ -1,11 +1,9 @@
 require('dotenv').config();
 
 const express = require('express');
-const router = express.Router();
-const mongo = require('mongodb');
-const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const urlencodedParser = bodyParser.urlencoded({extended : true});
+const mongoose = require('mongoose');
 const cors = require("cors");
 const app = express();
 const PORT = process.env.PORT;
@@ -13,6 +11,8 @@ const PORT = process.env.PORT;
 app.use(bodyParser.json());
 app.use(urlencodedParser);
 app.use(cors());
+
+// const { connection, getDB } = require('./connectDB.js');
 
 const homeRouter = require('./routes/routes-home.js');
 const formRouter = require('./routes/routes-form.js');
@@ -24,15 +24,20 @@ app.use(formRouter);
 app.use(aboutRouter);
 app.use(contactsRouter);
 
-try {
-    mongoose
-        .connect(`mongodb+srv://DaniilBy:${process.env.DB_PASSWORD}@diplomaproject.bhvad90.mongodb.net/?retryWrites=true&w=majority`)
-        .then(() => console.log('MongoBD connect'))
-        .catch((err) => console.log(err, 'error'))
+let db;
+mongoose
+    .connect(`mongodb+srv://DaniilBy:${process.env.DB_PASSWORD}@diplomaproject.bhvad90.mongodb.net/?retryWrites=true&w=majority`)
+    .then(() => console.log('MongoBD connect'))
+    .catch((err) => console.log(err, 'error'))
 
-} catch (error) {
-    console.error(error)
-}
+// connection((err) => {
+//     if(!err) {
+//         db = getDB();
+//     } else {
+//         console.log(`MongoDB connect error: ${err}`);
+//     }
+// });
+
 
 app.listen(PORT, (err) => {
     err ? console.log(err) : console.log(`Server start on PORT:${PORT}`);

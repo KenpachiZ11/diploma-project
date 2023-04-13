@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 
 export const FormCard = () => {
     const form = useRef(null);
+    const [message, setMessage] = useState([]);
     const [inputs, setInputs] = useState({
         author: null,
         title: null,
@@ -37,9 +38,14 @@ export const FormCard = () => {
         setInputs(prevState  => ({...prevState, [name]: value}))
     };
 
+    useEffect(() => {
+        fetch('http://localhost:8000/form')
+            .then(res => res.json())
+            .then(data => setMessage(data.message));
+    }, []);
 
     return (
-        <div>
+        <div>{message}
             <form ref={form} onSubmit={handleSubmit}>
             <label>
                 <h4>author</h4>
