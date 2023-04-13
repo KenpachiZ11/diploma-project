@@ -14,10 +14,10 @@ app.use(cors());
 
 // const { connection, getDB } = require('./connectDB.js');
 
-const homeRouter = require('./routes/routes-home.js');
-const formRouter = require('./routes/routes-form.js');
-const aboutRouter = require('./routes/routes-about.js');
-const contactsRouter = require('./routes/routes-contacts.js');
+const homeRouter = require('./routes/home-route.js');
+const formRouter = require('./routes/form-route.js');
+const aboutRouter = require('./routes/about-route.js');
+const contactsRouter = require('./routes/contacts-route.js');
 
 app.use(homeRouter);
 app.use(formRouter);
