@@ -39,7 +39,7 @@ export const FormCard = () => {
     };
 
     useEffect(() => {
-        fetch('http://localhost:8000/form')
+        fetch('/form')
             .then(res => res.json())
             .then(data => setMessage(data.message));
     }, []);
