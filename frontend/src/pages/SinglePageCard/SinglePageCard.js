@@ -6,10 +6,12 @@ import './SinglePageCard.scss'
 export const SinglePageCard = () => {
     const { id } = useParams();
     const [newPostData, setNewPostData] = useState([]);
-    let display = null;
+
+    // console.log(id, 'id')
+    // let display = null;
 
     useEffect(() => {
-        fetch(`/about`, {
+        fetch(`/about/${id}`, {
             method: 'GET'
         })
         .then(res => res.json())
@@ -19,79 +21,22 @@ export const SinglePageCard = () => {
         })
     }, [id]);
 
-    // display = newPostData.filter(el => {
-    //     const { _id, author, title, description  } = el;
-    //     console.log(_id, '_id')
-    //     console.log(id, 'id')
-    //         if(id === _id) {
-    //             console.log(id, _id)
-    //             // return (
-    //             //     <div key={_id}>
-    //             //         <h1>{title}</h1>
-    //             //         <div>{description}</div>
-    //             //         <h4>{author}</h4>
-    //             //     </div>
-    //             // )
-    //         }
-    // });
+    const { title, description, author } = newPostData;
 
-
-
-    // let idProduct = null;
-        display = newPostData.map(el => {
-            const { _id, author, title, description  } = el;
-            if(id === _id) {
-                // console.log(id, _id)
-                return (
-                    <div key={_id}>
-                        <h1>{title}</h1>
-                        <div>{description}</div>
-                        <h4>{author}</h4>
-                    </div>
-                )
-            }
-        });
-    // if(idProduct )
-
-    // console.log(idProduct)
-
-    // const [product, setProduct] = useState([]);
-    
-    // useEffect(() => {
-    //     try {
-    //         fetch(`/about/${id}`)
-    //             .then(res => res.json())
-    //             .then(res => {
-    //                 setProduct(res)
-    //                 console.log(res)
-    //             })
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // }, [id]);
-    // console.log(product)
+    // console.log(newPostData, 'newPost')
     return (
         <>
-            {display}
+            {
+                newPostData ? (
+                    <div>
+                        <div>Title: {title}</div>
+                        <div>Description: {description}</div>
+                        <div>Author: {author}</div>
+                    </div>
+                ) : <h1>404 not found</h1>
+            }
+
+            {/* {display ? display : <h1>404 not found</h1>} */}
         </>
-        // <div className='single-page-card'>
-        //     {/* {
-        //         product && (
-        //             <div className='single-page-card__block'>
-        //                 <div className='single-page-card__block-img'>
-        //                     <img 
-        //                         src={product.image} 
-        //                         alt={product.title}
-        //                         className='single-page-card__block-img-images'
-        //                     />
-        //                 </div>
-        //                 <div className='single-page-card__block-info'>
-        //                     <div>Title: {product.title}</div>
-        //                     <div>Description: {product.description}</div>
-        //                 </div>
-        //             </div>
-        //         )
-        //     } */}
-        // </div>
     )
 }
