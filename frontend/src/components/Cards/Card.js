@@ -1,44 +1,7 @@
-import React from 'react'
+import React from 'react';
 import { Link } from 'react-router-dom';
+import './Cards.scss';
 
-// export const Card = ({ newPostData }) => {
-//     // console.log(newPostData)
-
-//     let display = null;
-//         if(newPostData) {
-//             display = newPostData.map(result => {
-
-//                 // console.log(result)
-
-//             const {_id, title, image} = result;
-//                 // console.log(portfolio.length)
-//                 return (
-//                     <Link 
-//                         className='cards-block'
-//                         key={_id}
-//                         to={`/about/${_id}`}
-//                     >
-//                         <div className='cards-block__owner'>
-//                             <div className='cards-block__image'>
-//                                 <img 
-//                                     src={image} 
-//                                     alt={title}
-//                                     className='cards-block__image-img'
-//                                 />
-//                             </div>
-//                             <div className='cards-block__title'>{title}</div>
-//                         </div>
-                        
-//                     </Link>
-//                 )
-//             });
-//         } else {
-//             display = '404 not found';
-//         }
-//     return (
-//         <>{display}</>
-//     )
-// }
 export const Card = ({ newPostData }) => {
     let display = null;
 
@@ -54,7 +17,18 @@ export const Card = ({ newPostData }) => {
                     key={_id}
                     className='cards-block'
                 >
-                    {title}
+                    <div className='cards-block__owner'>
+                        <div className='cards-block__owner-image'>
+                            <img 
+                                src='https://get.wallhere.com/photo/illustration-children-teddy-bears-sleeping-painting-artwork-fan-art-1464585.jpg' 
+                                alt={title}
+                                className='cards-block__owner-image-img'
+                            ></img>
+                        </div>
+                        <div className='cards-block__owner-title'>
+                            {title}
+                        </div>
+                    </div>
                 </Link>
             )
         });

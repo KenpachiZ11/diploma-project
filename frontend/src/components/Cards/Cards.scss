@@ -1,5 +1,5 @@
 .aside-block__owner {
-    width: 100%;
+    width: 75vw;
 
     &-grid {
         width: 100%;
@@ -12,37 +12,18 @@
         gap: 30px;
         background: green;
     }
-}
 
 .cards-block {
-    width: 100%;
-    // min-height: 350px;
-    border: 1px solid;
-    border-radius: 10px;
-
-    // &:nth-child(2n+1){
-    //     height: 430px;
-    // }
-    // &:nth-child(2n){
-    //     height: 320px;
-    // }
-    // &:nth-child(3){
-    //     height: 700px;
-    // }
+    margin: 0 auto;
+        &__owner {
+            &-image {
+                width: 300px;
+                height: auto;
     
-    // &__owner {
-    //     min-height: 550px;
-    // }
-
-    &__image {
-        display: flex;
-        justify-content: center;
-        // align-items: center;
-        &-img {
-            width: 90%;
-            height: 90%;
-            object-fit: cover;
-            // background-size: cover;
+                &-img {
+                    width: 100%;
+                }
+            }
         }
     }
 }

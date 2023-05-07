@@ -13,6 +13,12 @@ export const FormCard = () => {
         e.preventDefault();
 
         const { author, title, description } = inputs;
+
+        if(!author || !title || !description) {
+            alert('Поля не могут быть путыми');
+            return false;
+        }
+
         fetch('/form', {
             'method': 'POST',
             headers: {

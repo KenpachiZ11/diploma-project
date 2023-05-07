@@ -1,11 +1,12 @@
 import React from 'react'
 import './AsideBlockPanel.scss'
+import { FilterComponentsCard } from '../../../components/FilterComponentsCard/FilterComponentsCard'
 
 const Aside = () => {
     return (
         <div className='aside-block__panel'>Aside
             <div >
-                Тут будет фильтр
+                <FilterComponentsCard />
             </div>
         </div>
     )

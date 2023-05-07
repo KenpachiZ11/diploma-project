@@ -1,4 +1,4 @@
-const DataForm = require('../models/send-data-form');
+const DataForm = require('../models/send-data-form.js');
 
 const getFormData = (req, res) => {
     DataForm
