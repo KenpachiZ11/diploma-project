@@ -16,7 +16,7 @@ router.post('/form', async(req, res) => {
         linkImage: req.body.linkImage
     });
 
-    console.log(postFormDate)
+    console.log(postFormDate, 'postFormDate/form-route.js');
 
     await postFormDate.save();
 });

@@ -1,54 +1,41 @@
 .single-page {
+    // padding: 0 10px;
     display: flex;
 
     &__image {
-        width: 65%;
-
+        // width: 90%;
         &-img {
             width: 100%;
+            height: auto;
+            object-fit: cover;
+            object-position: bottom; 
+        }
+    }
+
+    &__card {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        &-title {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+        }
+
+        &-description {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            font-size: 18px;
+        }
+
+        &-author {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            font-size: 20px;
         }
     }
 }
-
-// .single-page {
-//     &__card {
-//         width: 90%;
-//         margin: 0 auto;
-//         height: 100%;
-//     }
-    
-//     &__title {
-//         font-size: 28px;
-//         width: 100%;
-//         display: flex;
-//         justify-content: center;
-//         align-items: center;
-//     }
-    
-//     &__author {
-//         font-size: 28px;
-//         display: flex;
-//         justify-content: flex-end;
-//     }
-    
-//     &__description {
-//         display: flex;
-//         justify-content: center;
-//         align-items: center;
-//         font-size: 18px;
-//     }
-    
-//     &__image {
-//         display: flex;
-//         justify-content: center;
-//         box-sizing: border-box;
-//         // width: 50%;
-//         // height: 100%;
-
-//         &-img {
-//             object-fit: cover;
-//             width: 30%;
-//             // height: 100%;
-//         }
-//     }
-// }
