@@ -8,24 +8,26 @@ export const Card = ({ newPostData }) => {
         if(!newPostData) {
             display = '404 Not Found!'
         }
+
         display = newPostData.map(result => {
-            // const { _id, author, title, description } = result;
-            const { _id, title } = result;
+            const { _id, title, linkImage} = result;
+
             return (
                 <Link 
                     to={`/about/${_id}`} 
                     key={_id}
-                    className='cards-block'
+                    className='about-page__link'
                 >
-                    <div className='cards-block__owner'>
-                        <div className='cards-block__owner-image'>
+                    <div className='about-page__card'>
+                        <div className='about-page__card-image'>
                             <img 
-                                src='https://get.wallhere.com/photo/illustration-children-teddy-bears-sleeping-painting-artwork-fan-art-1464585.jpg' 
+                                // src='https://get.wallhere.com/photo/illustration-children-teddy-bears-sleeping-painting-artwork-fan-art-1464585.jpg' 
+                                src={!!linkImage ? linkImage : 'https://images.prom.ua/2161063091_w640_h640_silikonovyj-nochnik-detskij.jpg'}
                                 alt={title}
-                                className='cards-block__owner-image-img'
+                                className='about-page__card-image-img'
                             ></img>
                         </div>
-                        <div className='cards-block__owner-title'>
+                        <div className='about-page__card-title'>
                             {title}
                         </div>
                     </div>

@@ -12,7 +12,8 @@ router.post('/form', async(req, res) => {
     const postFormDate = new DataForm({
         author: req.body.author,
         title: req.body.title,
-        description: req.body.description
+        description: req.body.description,
+        linkImage: req.body.linkImage
     });
 
     console.log(postFormDate)

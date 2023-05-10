@@ -12,6 +12,13 @@ const sendDataForm = new Schema({
         required: true
     },
     description: String,
+    linkImage: {
+        type: String,
+    },
+    uploadTime: {
+        type: Date,
+        default: Date.now,
+    }
 });
 
 const DataForm = mongoose.model('SendDataForm', sendDataForm);

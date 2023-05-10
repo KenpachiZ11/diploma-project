@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Card } from './Card';
 import './Cards.scss'
+// import { Pagination } from '../Pagination/Pagination';
 
 
 const Cards = () => {
     // const [product, setProduct] = useState([]);
     const [newPostData, setNewPostData] = useState([]);
+    const [pageNumber, setPageNumber] = useState(1);
 
     useEffect(() => {
-        fetch('/about', {
+        fetch(`/about/?page=${pageNumber}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -17,19 +19,18 @@ const Cards = () => {
         })
         .then(res => res.json())
         .then(res => setNewPostData(res))
-    }, []);
+    }, [pageNumber]);
 
     return (
-        <div className='aside-block__owner'>OwnerAside
-            <div className='aside-block__owner-grid'>
-                {
-                    newPostData && newPostData.length > 0 ? <Card newPostData={newPostData}/> : <h1>Данных нет</h1>
-                }
-                {/* <Card 
-                    newPostData={newPostData}
-                /> */}
-            </div>
-        </div>
+        <>  
+            {
+                newPostData && newPostData.length > 0 
+                    ? 
+                        <div className='about-page__grid'><Card newPostData={newPostData}/></div>
+                    : 
+                        <h1>Данных нет</h1>
+            }
+        </>
     )
 }
 

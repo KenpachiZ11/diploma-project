@@ -7,14 +7,15 @@ export const FormCard = () => {
         author: null,
         title: null,
         description: null,
+        linkImage: null
     });
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const { author, title, description } = inputs;
+        const { author, title, description, linkImage } = inputs;
 
-        if(!author || !title || !description) {
+        if(!author || !title || !description || !linkImage) {
             alert('Поля не могут быть путыми');
             return false;
         }
@@ -26,7 +27,7 @@ export const FormCard = () => {
                 'Accept': 'application/json, text/plain, */*',
                 // 'Content-type': 'text/plain'
             },
-            body: JSON.stringify({ author, title, description })     
+            body: JSON.stringify({ author, title, description, linkImage })     
         })
         .then(res => res.json())
         .then(json => {
@@ -39,9 +40,10 @@ export const FormCard = () => {
     }
 
     const handleChange = (e) => {
+        // console.log(e)
         const name = e.target.name;
         const value = e.target.value;
-        setInputs(prevState  => ({...prevState, [name]: value}))
+        setInputs(prevState  => ({...prevState, [name]: value}));
     };
 
     useEffect(() => {
@@ -77,6 +79,15 @@ export const FormCard = () => {
                     type="text" 
                     name="description" 
                     value={inputs.description || ''}
+                    onChange={handleChange}
+                />
+            </label>
+            <label>
+                <h4>link image</h4>
+                <input 
+                    type="text" 
+                    name="linkImage" 
+                    value={inputs.linkImage || ''}
                     onChange={handleChange}
                 />
             </label>
