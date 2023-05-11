@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const { getContacts } = require('../controllers/contacts-controller.js');
+const { getContactData } = require('../controllers/contacts-controller.js');
 
-router.get('/contacts', getContacts);
+router.get('/contacts', getContactData);
+
 
 module.exports = router;
