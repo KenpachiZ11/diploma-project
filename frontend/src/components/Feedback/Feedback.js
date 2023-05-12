@@ -1,8 +1,9 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Feedback.scss';
 
 export const Feedback = () => {
     const form = useRef(null);
+    const [message, setMessage] = useState([]);
     const [inputs, setInputs] = useState({
         name: null,
         email: null,
@@ -36,8 +37,15 @@ export const Feedback = () => {
         })
         console.log(inputs)
 
-        // setInputs('');
     }
+
+    useEffect(() => {
+        fetch('/contacts')
+            .then(res => res.json())
+            .then(data => setMessage(data.message));
+    }, []);
+    
+    console.log(message)
 
     const handleChange = (e) => {
         // console.log(e)
@@ -93,6 +101,7 @@ export const Feedback = () => {
                             onChange={handleChange}
                         />
                     </label>
+                    {/* {message} */}
 
                     <input type="submit" value='Отправить'/>
                 </form>

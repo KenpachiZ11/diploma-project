@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react';
 
 export const FormCard = () => {
     const form = useRef(null);
@@ -52,8 +52,10 @@ export const FormCard = () => {
             .then(data => setMessage(data.message));
     }, []);
 
+    console.log(message)
+
     return (
-        <div>{message}
+        <div>
             <form ref={form} onSubmit={handleSubmit}>
             <label>
                 <h4>author</h4>

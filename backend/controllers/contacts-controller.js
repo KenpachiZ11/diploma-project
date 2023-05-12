@@ -1,10 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const ContactInfoForm = require('../models/send-data-form.js');
+const ContactInfoForm = require('../models/feedback-data-form.js');
 
+const getContacts = (req, res) => {
+    res.json({ message: "Hello from server 'getContacts" });
+}
 
-router.post('/contacts', async(req, res) => {
-    console.log(req, res)
+const getContactInfoForm = async(req, res) => {
     if(!req.body) return res.sendStatus(400);
 
     const contactInfoForm = new ContactInfoForm({
@@ -17,15 +19,16 @@ router.post('/contacts', async(req, res) => {
     console.log(contactInfoForm, 'contactInfoForm/contacts-controller.js');
 
     await contactInfoForm.save();
-});
+}
 
-const getContactData = (req, res) => {
-    ContactInfoForm
-        .find()
-        .then((dataForm) => res.json(dataForm))
-        .catch(err => console.error(err))
-};
+// const getContactData = (req, res) => {
+//     ContactInfoForm
+//         .find()
+//         .then((dataForm) => res.json(dataForm))
+//         .catch(err => console.error(err))
+// };
 
 module.exports = {
-    getContactData
+    getContacts,
+    getContactInfoForm
 };
