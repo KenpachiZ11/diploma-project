@@ -1,5 +1,3 @@
-const express = require('express');
-const router = express.Router();
 const ContactInfoForm = require('../models/feedback-data-form.js');
 
 const getContacts = (req, res) => {

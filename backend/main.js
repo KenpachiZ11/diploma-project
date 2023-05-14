@@ -16,11 +16,13 @@ const homeRouter = require('./routes/home-route.js');
 const formRouter = require('./routes/form-route.js');
 const aboutRouter = require('./routes/about-route.js');
 const contactsRouter = require('./routes/contacts-route.js');
+const feedbackAdmin = require('./routes/feedbackAdmin-route.js');
 
 app.use(homeRouter);
 app.use(formRouter);
 app.use(aboutRouter);
 app.use(contactsRouter);
+app.use(feedbackAdmin);
 
 mongoose
     .connect(`mongodb+srv://DaniilBy:${process.env.DB_PASSWORD}@diplomaproject.bhvad90.mongodb.net/?retryWrites=true&w=majority`)
