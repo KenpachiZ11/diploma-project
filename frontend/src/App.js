@@ -8,6 +8,7 @@ import { Contacts } from './pages/Contacts/Contacts';
 import { Home } from './pages/Home/Home';
 import { SinglePageCard } from './pages/SinglePageCard/SinglePageCard';
 import { FormCard } from './pages/FormCard/FormCard';
+import { Feedback } from './pages/Feedback/Feedback';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path='/about/:id' element={<SinglePageCard/>} />
           <Route path='/form' element={<FormCard/>} />
           <Route path='/contacts' element={<Contacts/>} />
+          <Route path='/feedback' element={<Feedback/>} />
         </Route>
       </Routes>
     </>

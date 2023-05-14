@@ -2,16 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Card } from './Card';
 import './Cards.scss'
 import { DataNull } from '../DataNull/DataNull';
-// import { Pagination } from '../Pagination/Pagination';
-
 
 const Cards = () => {
-    // const [product, setProduct] = useState([]);
     const [newPostData, setNewPostData] = useState([]);
-    // const [pageNumber, setPageNumber] = useState(1);
 
     useEffect(() => {
-        // fetch(`/about/?page=${pageNumber}`, {
         fetch(`/about`, {
             method: 'GET',
             headers: {
@@ -21,7 +16,6 @@ const Cards = () => {
         })
         .then(res => res.json())
         .then(res => setNewPostData(res))
-    // }, [pageNumber]);
     }, []);
 
     return (
@@ -32,7 +26,6 @@ const Cards = () => {
                         <div className='about-page__grid'><Card newPostData={newPostData}/></div>
                     : 
                         <DataNull/>
-                        // <h1>Данных нет</h1>
             }
         </>
     )

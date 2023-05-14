@@ -21,13 +21,6 @@ const getContactInfoForm = async(req, res) => {
     await contactInfoForm.save();
 }
 
-// const getContactData = (req, res) => {
-//     ContactInfoForm
-//         .find()
-//         .then((dataForm) => res.json(dataForm))
-//         .catch(err => console.error(err))
-// };
-
 module.exports = {
     getContacts,
     getContactInfoForm

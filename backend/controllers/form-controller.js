@@ -1,7 +1,5 @@
 const DataForm = require('../models/send-data-form.js');
 
-
-
 const getForm = (req, res) => {
     res.json({ message: "Hello from server 'getForm" });
 };
