@@ -1,130 +1,116 @@
-// .home-wrapper {
-//     width: 100%;
-//     height: 750px;
-//     background: yellow;
-//     display: flex;
+.home-page {
+    color: white;
+    background: black;
 
-//     &__aside {
-//         width: 30%;
-//         height: 100%;
-//         background: gray;
-//         z-index: 3;
-//         // opacity: 0;
-//         animation: show 1s forwards;
-
-//         &-title {
-//             height: 30px;
-//             width: 100%;
-//             display: flex;
-//             justify-content: center;
-//             align-items: center;
-//             font-size: 20px;
-//         }
-//     }
-//     &__body {
-//         position: relative;
-//         width: 100%;
-//         height: 100%;
-//         display: flex;
-//         justify-content: center;
-//         align-items: center;
-//         .ant-btn {
-//             width: 125px;
-//         }
-//         .block-button {
-//             display: flex;
-//             justify-content: flex-start;
-//             align-items: center;
-//         }
-//         .btn-active {
-//             position: absolute;
-//             top: 0;
-//             left: -100px;
-//             // background: orange;
-//             transition: all 1.5s;
-//         }
-//         .btn-active:hover {
-//             position: absolute;
-//             top: 0;
-//             left: 0;
-//             transition: all 1s;
-//             z-index: 2;
-//         }
-
-//         &-cards {
-//             width: 100%;
-//             height: 100%;
-//             margin: 0 auto;
-//             // background: red;
-//             animation: show 1s forwards;
-//         }
-//     }
-
-//     &__cards {
-//         width: 100%;
-//         height: 100%;
-//         background: red;
-//     }
-// }
-
-// @keyframes show {
-//     0% {opacity: 0;}
-//     100% {opacity: 1;}
-// }
-
-.home-wrapper {
-    width: 100%;
-    height: 100vh;
-    // background: yellow;
-    position: relative;
-    display: flex;
-
-    &__aside {
-        height: 100%;
-        width: 30%;
-        background: gray;
-        animation: visible 1s forwards;
-        z-index: 10;
-        // position: fixed;
-    }
-
-    &__body {
-        width: 100%;
+    &__header {
         position: relative;
-        
-        &-content {
-            height: 100%;
-            width: 100%;
-            display: flex;
-            // background: red;
-            position: relative;
-        }
 
-        .btn-active {
-            position: absolute;
-            width: 130px;
-            top: 0;
-            left: -100px;
-            transition: 1s;
-            background: orange;
+        &-image {
+            width: 100%;
+            height: 500px;
+            background-image: url('../../../images/ImageForHome.jpg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            z-index: 1;
         }
-        .btn-active:hover {
+        &-title {
             position: absolute;
-            width: 130px;
-            top: 0;
-            left: 0;
-            transition: 1.5s;
-        }
-        .btn-false {
-            position: absolute;
-            width: 130px;
-            top: 0;
-            left: 0;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            font-size: 30px;
         }
     }
 
-}
-@keyframes visible {
-    0% {opacity: 0;}
-    100% {opacity: 1;}
+    &__main {
+        height: auto;
+
+        &-title {
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+        }
+
+        &-cards {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            // padding-bottom: 30px;
+
+            .cards-wrapper {
+                width: 300px;
+                height: 450px;
+                border: 1px solid grey;
+                border-radius: 20px;
+                position: relative;
+                overflow: hidden;
+
+                &__image {
+                    width: 100%;
+                    height: 450px;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: cover;
+                    z-index: 1;
+                }
+
+                .one-image {
+                    background-image: url('../../../images/check.jpg');
+                }
+                .two-image {
+                    background-image: url('../../../images/author.jpg');
+                }
+                .three-image {
+                    background-image: url('../../../images/repair.jpg');
+                }
+
+                &__title {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 2;
+                    width: 100%;
+                    height: 40px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+        }
+    }
+
+    &__footer {
+        // height: 200px;
+
+        &-title {
+            font-size: 20px;
+            width: 100%;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &-text {
+            font-size: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80px;
+        }
+
+        // &-image {
+            // width: 200px;
+            // height: auto;
+            // background-image: url('../../../images/logoIThub.png');
+            // background-repeat: no-repeat;
+            // background-position: center;
+            // background-size: cover;
+        // }
+    }
 }

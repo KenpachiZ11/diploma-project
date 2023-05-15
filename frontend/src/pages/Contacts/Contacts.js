@@ -5,10 +5,10 @@ import { Feedback } from '../../components/Feedback/Feedback';
 
 export const Contacts = () => {
     return (
-        <div className='page-contacts'>
-            <div className='page-contacts__title'>Информация о нас</div>
+        <div className='contacts-page'>
+            <div className='contacts-page__title'>Информация о нас</div>
             <Maps/>
-            <div className='page-contacts__feedback'><Feedback/></div>
+            <div className='contacts-page__feedback'><Feedback/></div>
         </div>
     )
 }
