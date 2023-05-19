@@ -10,7 +10,7 @@ export const Header = () => {
                 <div className='header-wrapper__links'>
                     <ul>
                         <li><NavLink to='/'>Главная</NavLink></li>
-                        <li><NavLink to='/about'>Прочее</NavLink></li>
+                        <li><NavLink to='/about'>Работы</NavLink></li>
                         <li><NavLink to='/contacts'>Контакты</NavLink></li>
                     </ul>
                 </div>
