@@ -22,9 +22,9 @@ export const FormCard = () => {
 
         fetch('/form', {
             'method': 'POST',
-            headers: {
+            'headers': {
                 'Content-Type': 'application/json',
-                'Accept': 'application/json, text/plain, */*',
+                // 'Accept': 'application/json, text/plain, */*',
                 // 'Content-type': 'text/plain'
             },
             body: JSON.stringify({ author, title, description, linkImage })     
