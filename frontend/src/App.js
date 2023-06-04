@@ -9,6 +9,8 @@ import { Home } from './pages/Home/Home';
 import { SinglePageCard } from './pages/SinglePageCard/SinglePageCard';
 import { FormCard } from './pages/FormCard/FormCard';
 import { FeedbackAdmin } from './pages/FeedbackAdmin/FeedbackAdmin';
+import { Person } from 'react-bootstrap-icons';
+import { Auth } from './pages/Auth/Auth';
 
 
 function App() {
@@ -22,6 +24,8 @@ function App() {
           <Route path='/form' element={<FormCard/>} />
           <Route path='/contacts' element={<Contacts/>} />
           <Route path='/feedback-admin' element={<FeedbackAdmin/>} />
+          <Route path='/person' element={<Person/>} />
+          <Route path='/auth' element={<Auth/>} />
         </Route>
       </Routes>
     </>
