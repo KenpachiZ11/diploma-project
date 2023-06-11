@@ -1,13 +1,24 @@
 const nodemailer = require('nodemailer');
-const orderToEmail = (req, res) => {
+const smtpTransport = require('nodemailer-smtp-transport');
 
-    let transport  = nodemailer.createTransport({
+const orderToEmail = (req, res) => {
+    const { to, subject, text } = req.body;
+
+    if(!to || !subject || !text) {
+        return res.status(400).send('Поля не заполнены');
+    }
+
+    let transporter = nodemailer.createTransport(smtpTransport({
         service: 'gmail',
+        host: 'smtp.example.com',
+        port: 465,
+        secure: true,
+        pool: true,
         auth: {
-            user: 'GlobalAdmin@gmail.ru',
+            user: 'username',
             pass: 'password'
         }
-    });
+    }));
 
     // const mailData = {
     //     from: 'youremail@gmail.com',  // sender address
@@ -17,12 +28,16 @@ const orderToEmail = (req, res) => {
     //     html: '<b>Hey there! </b>',
     // };
 
+    console.log(req.body);
+
+    
+
     let mailOptions = {
-        from: 'danek001@mail.ru',
+        from: 'danek0011@gmail.ru',
         // to: 
-        to: 'danek001@mail.ru',
-        subject: 'req.body.subject',
-        text: 'req.body.text',
+        to: req.body.to,
+        subject: req.body.subject,
+        text: req.body.text,
         // html: 
         //     `
         //         <div style="padding:10px;border-style: ridge">
@@ -42,18 +57,18 @@ const orderToEmail = (req, res) => {
 
     console.log(mailOptions)
 
-    transport.sendMail(mailOptions, function(error, info){
-        if(error) {
-            res.json({status: true, respMesg: 'Email Sent Successfully'})
+    transporter.sendMail(mailOptions, function(error, info){
+        if (error) {
+            console.log(error);
         } else {
-            res.json({status: true, respMesg: 'Email Sent Successfully'})
+            console.log('Email sent: ' + info.response);
         }
     });
 };
 
 
 const getOrder = (req, res) => {
-    res.json({ message: "Hello from server 'getContacts" });
+    res.json({ message: "Hello from server 'getOrder" });
 }
 
 module.exports = {
