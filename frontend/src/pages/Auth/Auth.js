@@ -39,9 +39,9 @@ export const Auth = () => {
 				setPwd(json.inputs)
 			})
 
-			setTimeout(() => {
-				clearForm();
-			}, 1000);
+			// setTimeout(() => {
+			// 	clearForm();
+			// }, 1000);
         }
         console.log(body);
     }
